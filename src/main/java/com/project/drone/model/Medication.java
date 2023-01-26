@@ -1,12 +1,35 @@
 package com.project.drone.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Medication {
 
+    @JsonProperty
     private String name;
+    @JsonProperty
     private float weight;
-    private String code;
-    //image
 
+    @Id
+    private String code;
+
+    @ManyToOne
+    @JsonProperty
+    private Drone drone;
+
+
+    public Medication() {
+    }
+
+    public Medication(String name, float weight, String code) {
+        this.name = name;
+        this.weight = weight;
+        this.code = code;
+    }
 
     public String getName() {
         return name;
@@ -30,5 +53,13 @@ public class Medication {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Drone getDrone() {
+        return drone;
+    }
+
+    public void setDrone(Drone drone) {
+        this.drone = drone;
     }
 }

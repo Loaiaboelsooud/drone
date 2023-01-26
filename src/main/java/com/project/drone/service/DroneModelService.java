@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface DroneModelService {
     List<DroneModel> findAll();
-    DroneModel getSuitableDroneModel(float maxWeight);
+    DroneModel findByMaxWeight(float maxWeight);
 }

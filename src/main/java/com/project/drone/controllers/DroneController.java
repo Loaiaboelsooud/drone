@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/drone")
 public class DroneController {
     @Autowired
     private DroneModelService droneModelService;
@@ -22,9 +23,17 @@ public class DroneController {
 
     }
 
-    @PostMapping("/drone")
-    public void saveDrone(@RequestBody float maxWeight) {
-        droneService.init(maxWeight);
+    @GetMapping("/findAll")
+    public List<Drone> getDrones() {
+        return droneService.findAll();
 
     }
+
+
+    @PostMapping("/init/{maxWeight}")
+    public Drone createNewDrone(@PathVariable float maxWeight) {
+       return droneService.init(maxWeight);
+
+    }
+
 }

@@ -18,7 +18,7 @@ public class DroneModelServiceImpl implements DroneModelService {
         return droneModelDao.findAll();
     }
     @Override
-    public DroneModel getSuitableDroneModel(float maxWeight) {
+    public DroneModel findByMaxWeight(float maxWeight) {
         return droneModelDao.findByMaxWeight(maxWeight);
     }
 }
