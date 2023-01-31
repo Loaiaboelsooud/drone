@@ -38,10 +38,9 @@ public class MedicationServiceImpl implements MedicationService {
         if (drone != null) {
             drone.setState(DroneState.LOADING);
             drone.setShippingTime(new Date());
-            medication.setDrone(drone);
+            drone.getMedications().add(medication);
             medicationDao.save(medication);
         }
         return medication;
     }
-
 }

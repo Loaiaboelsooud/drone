@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.project.drone.enums.DroneState;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Drone {
@@ -20,6 +22,9 @@ public class Drone {
     private DroneState state;
     @JsonProperty
     private Date shippingTime;
+    @OneToMany
+    @JsonProperty
+    private List<Medication> medications;
 
 
     public Drone() {
@@ -29,6 +34,7 @@ public class Drone {
         this.droneModel = droneModel;
         this.batteryCapacity = 100;
         this.state = DroneState.IDLE;
+        this.medications= new ArrayList<>();
     }
 
     public int getSerialNumber() {
@@ -69,5 +75,13 @@ public class Drone {
 
     public void setShippingTime(Date shippingTime) {
         this.shippingTime = shippingTime;
+    }
+
+    public List<Medication> getMedications() {
+        return medications;
+    }
+
+    public void setMedications(List<Medication> medications) {
+        this.medications = medications;
     }
 }

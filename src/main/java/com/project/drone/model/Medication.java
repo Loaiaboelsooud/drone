@@ -17,11 +17,6 @@ public class Medication {
     @Id
     private String code;
 
-    @ManyToOne
-    @JsonProperty
-    private Drone drone;
-
-
     public Medication() {
     }
 
@@ -55,11 +50,4 @@ public class Medication {
         this.code = code;
     }
 
-    public Drone getDrone() {
-        return drone;
-    }
-
-    public void setDrone(Drone drone) {
-        this.drone = drone;
-    }
 }
