@@ -40,7 +40,8 @@ public class MedicationServiceImpl implements MedicationService {
             drone.setShippingTime(new Date());
             drone.getMedications().add(medication);
             medicationDao.save(medication);
+            return medication;
         }
-        return medication;
+        return null;
     }
 }

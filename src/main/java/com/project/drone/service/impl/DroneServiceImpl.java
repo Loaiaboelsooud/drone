@@ -91,7 +91,7 @@ public class DroneServiceImpl implements DroneService {
         return medicationWeights;
     }
 
-    @Scheduled(fixedRate = 300000)
+    @Scheduled(fixedRate = 60000)
     public void updateDroneStatus() {
         List<Drone> drones = droneDao.findAll().stream().
                 filter(drone -> !DroneState.IDLE.equals(drone.getState())).collect(Collectors.toList());

@@ -25,6 +25,5 @@ public class MedicationController {
                                      @RequestParam (value="weight", required=true) float weight,
                                      @RequestParam(value="code", required=true)  String code) {
         return medicationService.loadMedication(name, weight, code);
-
     }
 }
